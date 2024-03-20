@@ -1,0 +1,404 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url('images/catbg.jpg');
+    background-color: #663399;
+    color: #fff;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(139, 139, 139, 0.39);
+    z-index: -1; 
+}
+
+
+.navbar {
+    background-color: #f2b9cd;
+    padding: 0;
+    border-bottom: 2px solid #f2b9cd;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000; 
+}
+
+.navbar-brand img {
+    height: 100px;
+    width: auto;
+}
+
+.navbar-nav li a {
+    color: #663399 !important;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.promo-title {
+    font-size: 48px;
+    color: #f2b9cd;
+}
+
+
+#services {
+    color: #fff;
+    padding: 80px 0;
+}
+
+.services h4 {
+    font-size: 24px;
+    margin-top: 20px;
+    text-transform: uppercase;
+    color: #663399; 
+}
+
+.service-img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+
+#about-us {
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    padding: 20px;
+    color:#663399;
+    background-color: #f1e0f1;
+}
+
+.about-title {
+    font-size: 36px;
+    margin-bottom: 30px;
+    color: #663399;
+}
+
+#contact {
+    color: #fff;
+    padding: 80px 0;
+}
+
+.contact-title {
+    font-size: 36px;
+    margin-bottom: 30px;
+    color: #663399;
+}
+
+
+#login {
+    color: #663399;
+    padding: 80px 0;
+    font-weight: bold;
+}
+
+.login-title {
+    font-size: 36px;
+    margin-bottom: 30px;
+    color: #663399; 
+}
+
+
+#signup {
+    color: #663399;
+    padding: 80px 0;
+    font-weight: bold;
+}
+
+.signup-title {
+    font-size: 36px;
+    margin-bottom: 30px;
+    color: #663399; 
+}
+
+
+#customer-care {
+    color: #fff;
+    padding: 80px 0;
+}
+
+.care-title {
+    font-size: 36px;
+    margin-bottom: 30px;
+    color: #663399; 
+}
+
+.col-md-3,
+.col-md-6 {
+    max-width: 100%;
+}
+
+.col-md-3 {
+    text-align: center;
+}
+
+.col-md-3 h2,
+.col-md-3 p,
+.col-md-3 li {
+    color: white;
+}
+
+.col-md-3 h2,
+
+.col-md-3 ul {
+    list-style-type: none;
+    padding: 3px;
+    margin: 0;
+    text-align: center;
+}
+
+.col-md-3 li {
+    margin-bottom: 10px;
+    padding: 20px; 
+    font-size: 25px;
+    font-style: Arial, sans-serif;
+    border: 1px solid #ddd; 
+    border-radius: 5px; 
+}
+
+.col-md-3 li a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 0 0 0 20px; 
+    background-repeat: no-repeat;
+    background-position: center; 
+    background-size: cover; 
+    width: 100px; 
+    height: 100px; 
+    line-height: 100px; 
+}
+
+h2 {
+    background-color: #f2b9cd;
+    padding: 20px;
+    text-align: center;
+}
+
+#services {
+    background-color: #f1e0f1;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    padding: 20px;
+    color: #663399;
+}
+
+.product-item img {
+    max-width: 60%; 
+    height: auto; 
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-item {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    margin-bottom: 20px;
+}
+
+.price {
+    font-size: 20px;
+    font-weight: bold; 
+    color: #663399;
+}
+
+.register-button {
+    display: block;
+    margin: 0 auto;
+    width: 200px; 
+    height: 50px; 
+    font-size: 18px;
+    background-color: #f2b9cd;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.register-button hover {
+    color:#ddd;
+}
+
+#register {
+    background-color: #f1e0f1;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    padding: 20px;
+    color: #663399;
+}
+
+.section {
+    padding: 20px;
+    color: #663399;
+}
+
+#login button[type="submit"],
+#signup button[type="submit"] {
+    background-color: #663399;
+    color: #fff;
+}
+
+#login button[type="submit"]:hover,
+#signup button[type="submit"]:hover {
+    background-color: #4b2e67;
+}
+
+
+
+.col-md-3 li a[href="https://twitter.com/Alilyfad"] {
+    background-image: url('images/twitter.jpg'); 
+}
+
+.col-md-3 li a[href="https://www.facebook.com/Alilyfad/"] {
+    background-image: url('images/facebook.jpg'); 
+}
+
+.col-md-3 li a[href="https://www.instagram.com/alilyfad/"] {
+    background-image: url('images/instagram.jpg'); 
+}
+
+[class*="col-"] {
+    float: left;
+    width: 100%; 
+}
+
+footer {
+    background-color: #f2b9cd;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+    color: #663399;
+}
+
+.add-to-cart-button {
+    display: block;
+    margin: 10px auto; 
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #663399;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.add-to-cart-button:hover {
+    background-color: #4b2e67;
+}
+
+#products, #snacks{
+    background-color: #f1e0f1;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    padding: 20px;
+    text-align: center;
+    color: #663399;
+}
+
+
+.product-item{
+    text-align: center;
+    margin-bottom: 20px;
+    color: #663399;
+    flex-direction: column;
+}
+
+.product-item img{
+    max-width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#help {
+    color: #663399;
+    padding: 80px 0;
+    background-color: #f1e0f1;
+}
+
+#help h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+    color: #663399;
+}
+
+#help p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+#help-form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+#help-form .form-label {
+    color: #663399;
+}
+
+#help-form .form-control {
+    background-color: #f2b9cd;
+    color: #663399;
+}
+
+#help-form textarea.form-control {
+    min-height: 150px;
+}
+
+#help-form button[type="submit"] {
+    background-color: #663399;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#help-form button[type="submit"]:hover {
+    background-color: #4b2e67;
+}
+
+
+@media only screen and (max-width:600px ) {
+    [class*="col-"] {
+        width: 100%;
+
+      } 
+    .container{
+        padding-right: 100px;
+    }
+}
+
+@media only screen and (min-width:1280px ) {
+
+   .col-md-3{
+    width: 25%;
+   }
+
+   .col-md-6{
+    width: 50% ;
+   }
+
+   .col-md-3{
+    width: 25%;
+   }
+
+   .col-md-12{
+    width: 100%;
+   }
+}
