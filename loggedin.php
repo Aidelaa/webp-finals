@@ -94,31 +94,28 @@ mysqli_close($conn);
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav m-lg-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#top">HOME</a>
+                            <a class="nav-link" href="loggedin.php">HOME</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#services">PRODUCTS & SERVICES</a>
+                            <a class="nav-link" href="loggedin.php">PRODUCTS & SERVICES</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#about-us">ABOUT US</a>
+                            <a class="nav-link" href="loggedin.php#aboutus">ABOUT US</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#cart">CART</a>
+                            <a class="nav-link" href="loggedin.php#support">SUPPORT</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#login">LOGIN</a>
+                            <a class="nav-link" href="profile.php">PROFILE</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#signup">REGISTER</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#help">SUPPORT</a>
-                        </li>
+                        <form class="d-flex">
+                            <input class="form-control" id="searchbar" type="text" placeholder="Search..">
+                        </form>
                     </ul>
                 </div>
             </div>
         </nav>    
-    </section>
+    </section>   
 
     <section id="contact">
         <div class="row">
@@ -230,19 +227,6 @@ mysqli_close($conn);
             <button type="submit" class="add-to-cart-button">Add to Cart</button>
             </form>
         </div>
-
-</section>
-            </div>
-
-            <div class="col-md-3">
-                <form action="register.php" method="post" id="register">
-                    <link rel="stylesheet" href="#login">
-                    <h3>Want to be a member?</h3>
-                    <button type="submit" class="register-button"><a href= "#signup">Register</a></button>
-                </form>
-            </div>
-            </div>
-    </section>
 
     <div class="col-md-12">
     <section id="about-us">
