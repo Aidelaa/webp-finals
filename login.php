@@ -29,18 +29,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $hashed_password = $row['password'];
 
         if (password_verify($password, $hashed_password)) {
+            // Start the session to store logged-in user information
+            session_start();
+            $_SESSION['user_email'] = $email;
 
-            echo "Login successful!";
-
+            // Redirect user to products and services section after successful login
+            header("Location: loggedin.php#products"); // Replace 'yourpage.php' with the actual filename of your page
+            exit();
         } else {
-
             echo "Error: Incorrect password.";
         }
     } else {
-
         echo "Error: Email not found.";
     }
-
 
     mysqli_close($conn);
 }

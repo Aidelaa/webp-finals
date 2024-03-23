@@ -1,7 +1,78 @@
+<?php
+session_start();
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "purrfection_cafe";
+
+// Function to sanitize user input
+function sanitizeInput($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
+// Database connection
+$conn = mysqli_connect($servername, $username, $password, $database);
+
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+// Login form submission handling
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login-submit'])) {
+    $email = sanitizeInput($_POST['login-email']);
+    $password = sanitizeInput($_POST['login-password']);
+
+    $check_email_query = "SELECT * FROM profile WHERE email = '$email'";
+    $check_email_result = mysqli_query($conn, $check_email_query);
+
+    if (mysqli_num_rows($check_email_result) > 0) {
+        $row = mysqli_fetch_assoc($check_email_result);
+        $hashed_password = $row['password'];
+
+        if (password_verify($password, $hashed_password)) {
+            // Login successful, redirect to products and services section
+            header("Location: #services");
+            exit;
+        } else {
+            $login_error = "Error: Incorrect password.";
+        }
+    } else {
+        $login_error = "Error: Email not found.";
+    }
+}
+
+// Registration form submission handling
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['signup-submit'])) {
+    $fname = sanitizeInput($_POST['fname']);
+    $lname = sanitizeInput($_POST['lname']);
+    $email = sanitizeInput($_POST['signup-email']);
+    $password = sanitizeInput($_POST['signup-password']);
+
+    $password_hash = password_hash($password, PASSWORD_DEFAULT);
+
+    $stmt = $conn->prepare("INSERT INTO profile (first_name, last_name, email, password) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("ssss", $fname, $lname, $email, $password_hash);
+
+    if ($stmt->execute()) {
+        // Registration successful, redirect to login section
+        header("Location: #login");
+        exit;
+    } else {
+        $register_error = "Error: " . $stmt->error;
+    }
+}
+
+mysqli_close($conn);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PURRFECTION CAFE</title>
     
@@ -10,27 +81,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     
     <link rel="icon" href="images/logo.png" type="ICON">
-    <script>
-        function search() {
-            var input, filter, cards, cardContainer, title, i;
-            input = document.getElementById("searchbar");
-            filter = input.value.toUpperCase();
-            cardContainer = document.querySelector(".container"); 
-            cards = cardContainer.querySelectorAll(".product-item"); 
-            for (i = 0; i < cards.length; i++) {
-                title = cards[i].querySelector("h3"); 
-                if (title.innerText.toUpperCase().indexOf(filter) > -1) {
-                    cards[i].style.display = "block";
-                } else {
-                    cards[i].style.display = "none";
-                }
-            }
-        }
-    </script>
 </head>
 <body>
 
-    <section id="nav-bar">
+<section id="nav-bar">
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#"><img src="images/logo.png" alt="Logo"></a>
@@ -60,10 +114,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#help">SUPPORT</a>
                         </li>
-                        <form class="d-flex">
-                            <input class="form-control" id="searchbar" type="text" placeholder="Search..">
-                            
-                            </form>
                     </ul>
                 </div>
             </div>
@@ -214,48 +264,6 @@
     </div>
     </section>
 
-    <section id="login">
-        <div class="container">
-            <h2 class="text-center">Log In</h2>
-            <form action="login.php" method="POST">
-                <div class="mb-3">
-                    <label for="login-email" class="form-label">Email Address</label>
-                    <input type="email" class="form-control" id="login-email" name="login-email" aria-describedby="emailHelp" placeholder="Enter email" required>
-                </div>
-                <div class="mb-3">
-                    <label for="login-password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="login-password" name="login-password" placeholder="Password" required>
-                </div>
-                <button type="submit" class="btn btn-primary">Log In</button>
-            </form>
-        </div>
-    </section>
-
-    <section id="signup">
-        <div class="container">
-            <h2 class="text-center">Sign Up</h2>
-            <form action="signup.php" method="POST" onsubmit="return validateSignUp()">
-                <div class="mb-3">
-                    <label for="fname" class="form-label">First Name</label>
-                    <input type="text" class="form-control" id="f-name" name="fname" placeholder="Enter First Name" required>
-                </div>
-                <div class="mb-3">
-                    <label for="lname" class="form-label">Last Name</label>
-                    <input type="text" class="form-control" id="l-name" name="lname" placeholder="Enter Last Name" required>
-                </div>
-                <div class="mb-3">
-                    <label for="signup-email" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="signup-email" name="signup-email" aria-describedby="emailHelp" placeholder="Enter email" required>
-                </div>
-                <div class="mb-3">
-                    <label for="signup-password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="signup-password" name="signup-password" placeholder="Password" required>
-                </div>
-                <button type="submit" class="btn btn-primary">Sign Up</button>
-            </form>
-        </div>
-    </section>
-
     <div class="col-md-12">
         <section id="help">
             <div class="container">
@@ -287,7 +295,5 @@
     </footer>
 
     <script src="validate.js"></script>
-    
-
 </body>
 </html>

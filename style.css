@@ -251,6 +251,31 @@ h2 {
     background-color: #4b2e67;
 }
 
+.search-form {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.search-form input[type="search"] {
+    width: 200px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    background-color: #fff;
+}
+
+.search-form button[type="submit"] {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+.search-form button[type="submit"]:hover {
+    background-color: #45a049;
+}
 
 
 .col-md-3 li a[href="https://twitter.com/Alilyfad"] {
