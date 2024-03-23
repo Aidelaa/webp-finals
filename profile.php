@@ -29,10 +29,13 @@
                             <a class="nav-link" href="loggedin.php">PRODUCTS & SERVICES</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="loggedin.php#aboutus">ABOUT US</a>
+                            <a class="nav-link" href="loggedin.php">ABOUT US</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="loggedin.php#support">SUPPORT</a>
+                            <a class="nav-link" href="cart.php">CART</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="loggedin.php">SUPPORT</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="profile.php">PROFILE</a>
